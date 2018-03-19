@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>breakout.js으로 아두이노와 스마트폰 연결 | 최신 스마트폰 &#34;비공식&#34; 블로그</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ㅁ 프롤로그">
+<meta name="keywords" content="최신 스마트폰 종류">
+<meta property="og:type" content="article">
+<meta property="og:title" content="breakout.js으로 아두이노와 스마트폰 연결">
+<meta property="og:url" content="https://dbbox.microhow.com/2012/05/29/breakoutjs으로-아두이노와-스마트폰-연결/index.html">
+<meta property="og:site_name" content="최신 스마트폰 &quot;비공식&quot; 블로그">
+<meta property="og:description" content="ㅁ 프롤로그">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://cfile5.uf.tistory.com/image/2028783D4FC7FA5B09DB3F">
+<meta property="og:image" content="https://dbbox.microhow.com/2012/05/29/breakoutjs으로-아두이노와-스마트폰-연결/images/hello_world_schematic.png">
+<meta property="og:image" content="http://img.linkprice.com/files/stlink/datafree/0018">
+<meta property="og:image" content="http://img.linkprice.com/files/glink/linkprice/20150417/55308d10ecdb6_412_29.gif">
+<meta property="og:updated_time" content="2018-02-13T19:08:30.092Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="breakout.js으로 아두이노와 스마트폰 연결">
+<meta name="twitter:description" content="ㅁ 프롤로그">
+<meta name="twitter:image" content="http://cfile5.uf.tistory.com/image/2028783D4FC7FA5B09DB3F">
+  
+    <link rel="alternate" href="/rss.xml" title="최신 스마트폰 &#34;비공식&#34; 블로그" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  
+    <link rel="amphtml" href="https://dbbox.microhow.com/2012/05/29/breakoutjs으로-아두이노와-스마트폰-연결//amp/index.html">
+  
+
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">최신 스마트폰 &#34;비공식&#34; 블로그</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">최신스마트폰 슈퍼특가 이벤트</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/rss.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dbbox.microhow.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-breakoutjs으로-아두이노와-스마트폰-연결" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/05/29/breakoutjs으로-아두이노와-스마트폰-연결/" class="article-date">
+  <time datetime="2012-05-28T15:00:00.000Z" itemprop="datePublished">2012-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      breakout.js으로 아두이노와 스마트폰 연결
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cfile5.uf.tistory.com/image/2028783D4FC7FA5B09DB3F" alt="최신 스마트폰 - breakout.js으로 아두이노와 스마트폰 연결"></p>
+<p>ㅁ 프롤로그</p>
+<p></p>
+<p>바야흐로 자바스크립트 전성시대이다.</p>
+<p></p>
+<p>필요한 기능에 대해 대부분 자바스크립트 라이브러리를 찾아볼 수 있다.</p>
+<p></p>
+<p>오늘 소개할 Breakout.js 역시 자바스크립트로 짜여이다.</p>
+<p></p>
+<p>그런데 여느 자바스크립트 라이브러리와는 달리 이 라이브러리는 하드웨어를 제어한다.</p>
+<p></p>
+<p>아두이노라는 오픈 하드웨어인데, 이 하드웨어는 이미 DIY(Do It Yourself)하는 사람들에게는 유명하며, 특히나 구글에서 안드로이드 악세서리로 아두이노와의 통신을 지원하면서 더더욱 유명해 졌다.</p>
+<p></p>
+<p>아두이노의 종류는 매우 다양하며 기능이나 크기와 같이 필요에 따라 다양하게 구매 가능하다.</p>
+<p></p>
+<p>[아두이노 여러 종류]</p>
+<p></p>
+<p>보다 더 아두이노에 대해 알아보자면, 아두이노는 디지털 핀 13개와 아날로그 핀 6개를 지원한다.</p>
+<p></p>
+<p>디지털 핀이란 0과 1로 제어하는 것이고, 아날로그 핀은 0~256값으로 아날로그적인 정보를 제어하게 된다.</p>
+<p></p>
+<p>[아두이노 우노 회로도, 이미지출처 : http://arduino.cc/it/Reference/Board ]</p>
+<p></p>
+<p>ㅁ Breakout.js 구성</p>
+<p></p>
+<p>Breakout.js는 서버와 클라이언트로 되어 있다. 자바스크립트 자체가 사용자의 브라우저 상에서 로딩되어 동작되는 개념이기 때문에 사용자의 브라우저와 물리적으로 연결되지 않은 아두이노를 제어하기 위해서는 서버와 클라이언트 개념이 필수이다. 서버와 클라이언트를 연결하는 방법으로 Breakout.js는 websocket을 사용하였다. WebSocket은 HTML5에서 채택된 통신개념이다.</p>
+<p></p>
+<p>[Breakout.js 구성도, 이미지 출처 : http://breakoutjs.com/ ]</p>
+<p></p>
+<p>Breakout.js 서버는 WebSocket Server로써 WebSocket Client를 기다리고 있고, WebSocket Client가 접속하면 연결을 맺는다. WebSocket 연결 이후 아두아노의 정보를 Serial 통신으로 받아 WebSocket Client에 전달하거나 꺼꾸로 WebSocket Client로부터 온 정보롤 아두이노에 보내는 양방향 통신의 매개체 역할을 한다. WebSocket은 RFC6455( http://tools.ietf.org/html/rfc6455)로 통신하도록 되어 있어 최신 WebSocket 스펙을 따르고 있다.</p>
+<p></p>
+<p>Breakout.js 클라이언트는 자바스크립트로 짜여져 있다. 아두이노의 각 디지털 핀과 아날로그 핀이 자바스크립트로 1:1 매핑되어 있어 아두이노 제어 로직을 웹 어플리케이션 상에서 손쉽게 구현할 수 있다. PC용 브라우저는 대부분 WebSocket이 구현되어 있어서 문제가 되지 않지만, 스마트폰용 브라우저는 WebSocket이 지원되지 않는 단말기도 있다. 따라서 현재는 WebSocket이 지원되는 PC용 브라우저에서만 고민없이 사용 가능하다.</p>
+<p></p>
+<p>모든 스마트폰용 브라우저가 WebSocket을 지원하지 않지만 하이브리드 앱을 통해 WebSocket을 사용할 수 있다. PhoneGap이라는 HTML5 애플리케이션 프레임워크를 사용하면 이를 해결할 수 있다. PhoneGap은 스마트폰용 API 중 웹 페이지를 로딩할 수 있는 웹뷰(WebView)를 사용하여 단말내의 여러 기능들을 자바스크립트로 제어 가능하게 해주고, 다양한 기기의 앱으로 배포할 수 있도록 도와주는 프레임워크이다. PhoneGap에서 지원되지 않는 기능은 PhoneGap Plugin을 통해서 지원된다. Breakout.js 클라이언트가 WebSocket이 필요로 하는 상황에서 PhoneGap과 PhoneGap Plugin을 사용한다면 모바일에서도 앱 형태로 아두이노를 제어할 수 있다.</p>
+<p></p>
+<p>ㅁ 준비물</p>
+<p></p>
+<p>이제 본격적으로 Breakout.js를 살펴보자. 하드웨어를 제어하는 자바스크립트이기 때문에 우선 하드웨어가 필요하다. Arduino Uno 보드는 가장 기본이 되는 보드로 싸고 손쉽게 구할 수 있다.</p>
+<p></p>
+<p>[아두이노 우노 사진, 이미지 출저 : http://arduino.cc/en/Main/ArduinoBoardUno ]</p>
+<p></p>
+<p>다음으로 Breakout.js 서버를 동작시키기 위해 PC가 필요하다. Windows, Mac, Linux용으로 모두 지원되므로 주로 사용하는 PC에 설치하면 된다. 또한 Breakout.js 클라이언트를 동작시키기 위해 안드로이드 폰이나 아이폰이 필요하다.</p>
+<p></p>
+<p>하드웨어가 준비되었다면 소프트웨어를 준비한다. 아두이노를 프로그래밍하기 위핸 Sketch Tool 설치한다. Sketch Tool은 다음(http://arduino.cc/en/Main/Software)에서 다운로드 받는다. 다음으로 Breakout.js을 다운받는다. http://breakoutjs.com/download/ 최신버전은 0.1.4로 zip형태로 배포된다.</p>
+<p></p>
+<p>ㅁ 아두이노 회로 연결하기</p>
+<p></p>
+<p>Breakout.js의 hello world를 처리하기 위해서는 아주 간단한 회로 구성을 해야 한다. LED와 Button을 연결한 회로도 이다. LED는 출력이 되고, Button은 입력이 될 것이다. http://breakoutjs.com/examples/schematics.pdf 이 pdf파일은 Breakout.js로 연결 가능한 회로도이다. 이 중 helloworld 대로 회로를 구성하면 된다.</p>
+<p></p>
+<p>ㅁ 아두이노 프로그래밍 하기</p>
+<p></p>
+<p>Breakout.js의 컨샙은 자바스크립트로 아두이노를 제어하는 것이다. 이를 위해서는 아두이노 프로그래밍에서 알고리즘을 구현하지 않고 대신 각 핀들의 기능을 자바스크립트 객체로 옮겨줘야 한다. 이를 위해서 Firmata를 사용한다. http://firmata.org/wiki/Main_Page</p>
+<p></p>
+<p>Firmata는 컴퓨터와 아두이노 사이에 일반적인 커뮤니케이션을 하기 위한 프로토콜로써 사람들이 PC를 통해 아두이노를 완벽하게 제어하기 위한 목표를 갖는다. Breakout.js에서는 Firmata 중에서도 기본인 StandardFirmata를 사용한다. 이 소스코드는 Aurdino Uno 보드에 기본적으로 fusing되어 있고, Sketch Tool에서도 바로 로드하여 사용할 수 있다.</p>
+<p></p>
+<p>ㅁ Breakout.js 서버 구동하기</p>
+<p></p>
+<p>Breakout.js 0.1.4 버전을 다운받으면 다음과 같은 디렉토리로 구성되어 있다.</p>
+<p></p>
+<p>이 중 server 폴더가 breakout.js 서버가 Windows, LInux, Mac용으로 되어 있다. 각 플랫폼에 맞게 설치하게 한다. Mac용의 경우 다음과 같은 어플리케이션이 설치된다.</p>
+<p></p>
+<p>Breakout.js 서버를 실행하게 되면, 'status'와 'settings' 텝으로 구성되어 있다. 우선 'status'텝을 살펴보면 serial과 port를 설정하는 란이 나온다. Mac의 경우 아두이노를 PC에 꽂게 되면 자동으로 /dev/cu.usbmodemfdxxxx 디바이스가 화면상의 serial 리스트박스에 잡히게 된다. port는 입력창으로 서버의 port를 설정할 수 있다. 하단에 'Connect' 버튼이 있어서 서버 환경설정이 끝나면 이 버튼으로 서버를 구동할 수 있도록 처리된다. 'settings'텝에는 웹서버 페이지의 경로를 설정할 수 있고, 다중 클라이언트를 지원하는지 여부를 체크박스 형태로 설정가능하다.</p>
+<p></p>
+<p>우선 'settings' 텝에서 'Webserver Root Directory'를 맞춘다. 다음 'status'텝에서 'Serial'과 'Port'를 맞춘다.</p>
+<p></p>
+<p>ㅁ Hello World(Breakout.js 클라이언트) 페이지 띄우기</p>
+<p></p>
+<p>안드로이드 폰으로 아두이노를 제어하기 전에 우선 웹 페이지에서 아두이노를 제어해 보자.</p>
+<p></p>
+<p>사용하는 브라우저를 띄워 주소창에 다음의 주소를 넣는다.</p>
+<p></p>
+<p>http://localhost:8890/examples/getting_started/hello_world.html</p>
+<p></p>
+<p>그리고, 코드상에 Breakout.js 서버의 주소와 포트를 알맞게 바꿔준다.</p>
+<p></p>
+<p>// the IOboard is connected to (eg. "192.168.2.3", 8887)</p>
+<p></p>
+<p>// replace "localhost" with the IP address of the computer</p>
+<p></p>
+<p>// If you want to load this example on a smartphone or tablet,</p>
+<p></p>
+<p>이제 브라우저의 LED Off, LED On를 눌러 아두이노를 제어 해보고, 아두이노에 연결된 버튼을 눌러 브라우저 상에 'Display Button State' 영역에서 버튼의 상태를 확인해 본다.</p>
+<p></p>
+<p>ㅁ 안드로이드 WebSocket용 PhoneGap Plugin 구현하기</p>
+<p></p>
+<p>이미 구현된 WebSocket용 PhoneGap Plugin은 다음을 찾을 수 있다.</p>
+<p></p>
+<p>https://github.com/anismiles/websocket-android-phonegap 하지만 이 PhoneGap Plugin은 최신 WebSocket 스펙을 따르지 않는다.</p>
+<p></p>
+<p>Breakout.js 서버는 최신 WebSocket 스펙인 rfc6455(http://tools.ietf.org/html/rfc6455)를 사용한다. (Breakout.js는 webbit이라는 오픈소스를 사용하여 구현되어 있다. 이 webbit 오픈소스는 최신 WebSocket 스펙을 따른다.)</p>
+<p></p>
+<p>따라서 앞서 소개한 WebSocket용 PhoneGap Plugin에 rfc6455를 추가 구현하였다. 해당 소스코드는 다음의 주소에 있다.</p>
+<p></p>
+<p>https://github.com/musart/websocket-android-phonegap</p>
+<p></p>
+<p>ㅁ 안드로이드 PhoneGap 어플리케이션 만들기</p>
+<p></p>
+<p>이클립스를 열어 안드로이드 프로젝트를 하나 생성한다. 사용한 안드로이드 폰은 ICS로 업그래이드된 Nexus S 이기에 Android 4.0.3을 사용하였다. 다음으로 PhoneGap Library를 프로젝트에 추가한다. 사용한 PhoneGap 버전은 1.7이다. Manifest와 Resource 그리고 Activity를 수정하여 PhoneGap 어플리케이션이 되도록 정리한다. 끝으로 기본 html페이지를 넣고 apk를 만들어 웹 페이지가 잘 뜨는지 확인해 본다.</p>
+<p></p>
+<p>helloworld 웹 어플리케이션은 안드로이드 프로젝트에 추가한다. 다운받아 압축을 푼 Breakout.js 안에 examples/getting_started/hello_world.html 코드를 안드로이드 assets 폴더에 넣는다. 또한 관련된 library인</p>
+<p></p>
+<p>jquery-1.7.min.js와 Breakout.js를 추가하고, PhoneGap 라이브러리인 Cordova-1.7.0.js를 추가한다.</p>
+<p></p>
+<p>다음은 PhoneGap에 들어갈 index.html 파일이다.</p>
+<p></p>
+<p><!DOCTYPE HTML></p>
+<p></p>
+<p><html></html></p>
+<p></p>
+<p><head></head></p>
+<p></p>
+<p><meta name="viewport" content="width=320; user-scalable=no"></p>
+<p></p>
+<p><meta http-equiv="Content-type" content="text/html; charset=utf-8"></p>
+<p></p>
+<p><title>PhoneGap</title></p>
+<p></p>
+<p><style type="text/css"></p>
+<p></p>
+<p>body {</p>
+<p></p>
+<p>margin: 15px;</p>
+<p></p>
+<p>font-family: sans-serif;</p>
+<p></p>
+<p>font-size: 16px;</p>
+<p></p>
+<p>line-height: 1.5em;</p>
+<p></p>
+<p>color: #666;</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>h2 {</p>
+<p></p>
+<p>padding-left: 0px;</p>
+<p></p>
+<p>font-weight: normal;</p>
+<p></p>
+<p>font-size: 28px;</p>
+<p></p>
+<p>color: #00AEFF;</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>.ledBtns {</p>
+<p></p>
+<p>padding: 10px;</p>
+<p></p>
+<p>font-size: 22px;</p>
+<p></p>
+<p>width: 130px;</p>
+<p></p>
+<p>color: #00AEFF;</p>
+<p></p>
+<p>margin-bottom: 20px;</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>#state {</p>
+<p></p>
+<p>color: #00AEFF;</p>
+<p></p>
+<p>font-size: 22px;</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>.container {</p>
+<p></p>
+<p>background-color: #f7f7f7;</p>
+<p></p>
+<p>padding-left: 10px;</p>
+<p></p>
+<p>border: 1px dotted #CCC;</p>
+<p></p>
+<p>width: 280px;</p>
+<p></p>
+<p>margin-top: 20px;</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>.spacer {</p>
+<p></p>
+<p>margin-left: 5px;</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>#schematic {</p>
+<p></p>
+<p>position: absolute;</p>
+<p></p>
+<p>display: none;</p>
+<p></p>
+<p>top: 65px;</p>
+<p></p>
+<p>left: 15px;</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>#schematicBtn {</p>
+<p></p>
+<p>margin-top: 20px;</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p></style></p>
+<p></p>
+<p><script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script></p>
+<p></p>
+<p><script type="text/javascript" charset="utf-8" src="websocket.js"></script></p>
+<p></p>
+<p><script type="text/javascript" charset="utf-8" src="jquery-1.7.min.js"></script></p>
+<p></p>
+<p><script type="text/javascript" charset="utf-8" src="Breakout.js"></script></p>
+<p></p>
+<p><script type="text/javascript"></p>
+<p></p>
+<p>$(document).ready(function() {</p>
+<p></p>
+<p>// declare these variables so you don't have</p>
+<p></p>
+<p>// to type the full namespace</p>
+<p></p>
+<p>var IOBoard = BO.IOBoard;</p>
+<p></p>
+<p>var IOBoardEvent = BO.IOBoardEvent;</p>
+<p></p>
+<p>var LED = BO.io.LED;</p>
+<p></p>
+<p>var Button = BO.io.Button;</p>
+<p></p>
+<p>var ButtonEvent = BO.io.ButtonEvent;</p>
+<p></p>
+<p>// If you want to load this example on a smartphone or tablet,</p>
+<p></p>
+<p>// replace "localhost" with the IP address of the computer</p>
+<p></p>
+<p>// the IOboard is connected to (eg. "192.168.2.3", 8887)</p>
+<p></p>
+<p>var arduino = new IOBoard("192.168.0.21", 8890);</p>
+<p></p>
+<p>var led;</p>
+<p></p>
+<p>// listen for the IOBoard READY event which indicates the IOBoard</p>
+<p></p>
+<p>// is ready to send and receive data</p>
+<p></p>
+<p>arduino.addEventListener(IOBoardEvent.READY, onReady);</p>
+<p></p>
+<p>function onReady(event) {</p>
+<p></p>
+<p>// remove the event listener because it is no longer needed</p>
+<p></p>
+<p>arduino.removeEventListener(IOBoardEvent.READY, onReady);</p>
+<p></p>
+<p>// create an LED object to interface with the LED wired</p>
+<p></p>
+<p>// to the I/O board</p>
+<p></p>
+<p>led = new LED(arduino, arduino.getDigitalPin(11));</p>
+<p></p>
+<p>// create a new Button object to interface with the physical</p>
+<p></p>
+<p>// button wired to the I/O board</p>
+<p></p>
+<p>var button = new Button(arduino, arduino.getDigitalPin(2));</p>
+<p></p>
+<p>// listen for button press and release events</p>
+<p></p>
+<p>button.addEventListener(ButtonEvent.PRESS, onPress);</p>
+<p></p>
+<p>button.addEventListener(ButtonEvent.RELEASE, onRelease);</p>
+<p></p>
+<p>// use jQuery to get a reference to the buttons</p>
+<p></p>
+<p>// and listen for click events</p>
+<p></p>
+<p>$('#btnLeft').on('click', turnLedOff);</p>
+<p></p>
+<p>$('#btnRight').on('click', turnLedOn);</p>
+<p></p>
+<p>// handle showing and hiding the schematic</p>
+<p></p>
+<p>$('#schematicBtn').on('click', toggleSchematicView);</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>function onPress(evt) {</p>
+<p></p>
+<p>// get a reference to the target which is the button that</p>
+<p></p>
+<p>// triggered the event</p>
+<p></p>
+<p>var btn = evt.target;</p>
+<p></p>
+<p>// display the state on the page</p>
+<p></p>
+<p>$('#state').html("Button " + btn.pinNumber + " state: Pressed");</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>function onRelease(evt) {</p>
+<p></p>
+<p>// get a reference to the target which is the button that</p>
+<p></p>
+<p>// triggered the event</p>
+<p></p>
+<p>var btn = evt.target;</p>
+<p></p>
+<p>// display the state on the page</p>
+<p></p>
+<p>$('#state').html("Button " + btn.pinNumber + " state: Released");</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>function turnLedOn(evt) {</p>
+<p></p>
+<p>// turn the LED on</p>
+<p></p>
+<p>led.on();</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>function turnLedOff(evt) {</p>
+<p></p>
+<p>// turn the LED off</p>
+<p></p>
+<p>led.off();</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>// show or hide the schematic</p>
+<p></p>
+<p>function toggleSchematicView(evt) {</p>
+<p></p>
+<p>var schematicBtn = $(this);</p>
+<p></p>
+<p>if (schematicBtn.data('state') === "hidden") {</p>
+<p></p>
+<p>schematicBtn.text("Hide Schematic");</p>
+<p></p>
+<p>schematicBtn.data('state', "visible");</p>
+<p></p>
+<p>$('#schematic').css('display', 'block');</p>
+<p></p>
+<p>} else {</p>
+<p></p>
+<p>schematicBtn.text("Show Schematic");</p>
+<p></p>
+<p>schematicBtn.data('state', "hidden");</p>
+<p></p>
+<p>$('#schematic').css('display', 'none');</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>}</p>
+<p></p>
+<p>});</p>
+<p></p>
+<p></script></p>
+<p></p>
+<p></p>
+<p></p>
+<p><body></body></p>
+<p></p>
+<p></p><h2>Hello World Example</h2><p></p>
+<p></p>
+<p><div class="container"></div></p>
+<p></p>
+<p></p><p><strong>Output:</strong> Use the buttons below to turn the LED on the breadboard on or off.</p><p></p>
+<p></p>
+<p><button id="btnLeft" class="ledBtns" type="button">LED Off</button></p>
+<p></p>
+<p><span class="spacer"></span></p>
+<p></p>
+<p><button id="btnRight" class="ledBtns" type="button">LED On</button></p>
+<p></p>
+<p></p>
+<p></p>
+<p><div class="container"></div></p>
+<p></p>
+<p></p><p><strong>Input:</strong> Press the button on the breadboard to display the state below.</p><p></p>
+<p></p>
+<p></p><p id="state">Display Button State</p><p></p>
+<p></p>
+<p></p>
+<p></p>
+<p><img id="schematic" src="images/hello_world_schematic.png"></p>
+<p></p>
+<p><button id="schematicBtn" data-state="hidden">Show Schematic</button></p>
+<p></p>
+<p></p><br><p>Source from http://musart.tistory.com/92</p><p>this post is collect by CC BY license</p><hr><p style="width:100%;"><a href="http://click.linkprice.com/click.php?m=datafree&a=A100588577&l=9999&l_cd1=3&l_cd2=0&tu=https%3A%2F%2Fdbbox.linkprice.com%2Fdatafree" target="_blank" rel="external nofollow noopener noreferrer"><img src="http://img.linkprice.com/files/stlink/datafree/0018" alt="최신 스마트폰" class="nofancybox"></a></p><p style="font-size:20px;font-weight:bold;text-align:center;"><a href="http://click.linkprice.com/click.php?m=datafree&a=A100588577&l=9999&l_cd1=3&l_cd2=0&tu=https%3A%2F%2Fdbbox.linkprice.com%2Fdatafree" target="_blank" rel="external nofollow noopener noreferrer">최신 스마트폰 바로가기</a></p><p><img src="http://img.linkprice.com/files/glink/linkprice/20150417/55308d10ecdb6_412_29.gif" width="412" height="29" class="nofancybox"></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dbbox.microhow.com/2012/05/29/breakoutjs으로-아두이노와-스마트폰-연결/" data-id="cjdm0xt25002wbg3w63p36xwq" class="article-share-link">공유</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/최신-스마트폰-종류/">최신 스마트폰 종류</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/07/18/도돌-폰-3--스마트폰-사용량-체크하면서-사용하기/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">최신</strong>
+      <div class="article-nav-title">
+        
+          도돌 폰 3 - 스마트폰 사용량 체크하면서 사용하기
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2011/12/06/국내-최초-윈도폰75-스마트폰-노키아-루미아-710-전파인증-완료/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">이전</strong>
+      <div class="article-nav-title">국내 최초 윈도폰7.5 스마트폰 노키아 루미아 710 전파인증 완료</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">최근 포스트</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/08/열린-모바일-올림픽-MWC-2018에서-정보통신기술-트렌드를-만나다/">열린 모바일 올림픽? MWC 2018에서 정보통신기술 트렌드를 만나다</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/07/드림리그사커-2018-apk크랙-링크-버그/">드림리그사커 2018 apk,크랙 링크 [버그]</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/갤럭시-S9-및-S9-문제점/">갤럭시 S9 및 S9+ 문제점</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/02/누크-글로우라이트-3-최신-6인치-전자책기기/">누크 글로우라이트 3- 최신 6인치 전자책기기</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/02/MWC2018-최고와-최악의-스마트폰은-무엇/">MWC2018, 최고와 최악의 스마트폰은 무엇?</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 dbbox_admin<br>
+      Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
